@@ -1,0 +1,192 @@
+.body, .container-principal {
+    background-color:#dfe5ec;
+}
+
+ul.ul-itens-agendamentos li.itens-agendamentos {
+    background-color:#d7e0eb;
+    border-radius: 25px;
+}
+
+ul.ul-itens-agendamentos-red li.itens-agendamentos {
+    background-color:#fdcfcf;
+    border-radius: 25px;
+}
+
+.titulo-agendamento {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+ul#lista li.conteudo-agendamento {
+    background-color:#ccd8e6;
+    border-radius: 25px;
+}
+
+#navbar li a {
+    padding-right: 30px;
+}
+
+#navbar li a:hover{
+    color:rgb(205, 223, 235);
+}
+
+li button.btn-abrir-fechar {
+    height: 60px;
+    width: 95px;
+    margin-top:15px;
+    background-color: rgb(67, 151, 207);
+    border-color: white;
+}
+
+li button.btn-abrir-fechar:hover {
+    background-color: rgb(58, 140, 194);
+    border-color: rgb(47, 125, 177);
+}
+
+
+form button.btn-editar {
+    background-color: rgb(139, 154, 223);
+    border-color: white;
+}
+
+form button.btn-editar:hover {
+    background-color: rgb(129, 144, 212);
+    border-color: rgb(115, 131, 201);
+}
+
+form button.btn-vermelho {
+    background-color: rgb(228, 67, 67);
+    border-color: white;
+}
+
+form button.btn-vermelho:hover {
+    background-color: rgb(214, 60, 60);
+    border-color: rgb(201, 52, 52);
+}
+
+form button.btn-vermelho-sair {
+    background-color: rgb(228, 67, 67);
+    border-color: rgb(61, 72, 197);
+}
+
+form button.btn-vermelho-sair:hover {
+    background-color: rgb(214, 60, 60);
+    border-color: rgb(201, 52, 52);
+}
+
+form button.btn-entrar {
+    background-color: rgb(13,110,253);
+    border-color: rgb(13,110,253);
+}
+
+form button.btn-entrar:hover {
+    background-color: rgb(5, 89, 216);
+    border-color: rgb(13,110,253);
+}
+
+div button.btn-proximo-voltar {
+    background-color: rgb(139, 154, 223);
+    border-color: white;
+}
+
+div button.btn-proximo-voltar:hover {
+    background-color: rgb(129, 144, 212);
+    border-color: rgb(115, 131, 201);
+}
+
+button.btn-verde {
+    background-color: rgb(96, 214, 96);
+    border-color: white;
+}
+
+div button.btn-verde:hover {
+    background-color: rgb(78, 201, 78);
+    border-color: rgb(70, 196, 70);
+}
+
+input.input-color {
+    background-color: #d9eaff;
+}
+
+ul.input-color {
+    background-color: #c7ddf7;
+}
+
+input.input-color:checked {
+    background-color: #57c072;
+}
+
+input.input-color-text {
+    background-color: #e0edfc;
+}
+
+input.input-color-text:focus {
+    background-color: #e0edfc;
+    box-shadow: 0 0 10px #57c072;
+}
+
+li.config-color {
+    background-color: #d9eaff;
+}
+
+
+/* css fullcalendar */
+.fc-today {
+    background: #d5dce4 !important;
+    border: none !important;
+    border-top: 1px solid #ddd !important;
+    font-weight: bold;
+} 
+
+.fc-right .fc-prev-button, .fc-right .fc-next-button{
+    background-color: #ccd6e2;
+    border-color: white;
+    background-image: none;
+}
+
+.fc-right .fc-prev-button:hover, .fc-right .fc-next-button:hover{
+    background-color: #b8c7d8;
+    border-color: #b0bfd1;
+    background-image: none;
+}
+
+.fc-right .fc-today-button {
+    background-color: #ccd6e2;
+    border-color: white;
+    background-image: none;
+}
+
+.fc-right .fc-today-button:hover {
+    background-color: #b8c7d8;
+    border-color: #b0bfd1;
+    background-image: none;
+}
+
+.fc-right .fc-today-button:disabled {
+    background-color: #aeb1b4;
+    border-color: white;
+    background-image: none;
+}
+
+.fc-content {
+    background-color: #9baec5;
+}
+
+#calendar .fc-header-toolbar {
+    margin-bottom: 2.5em;
+}
+
+/* Mensagem de erro */
+
+#mensagem-erro {
+    padding-top: 21px;
+    margin-top: 26px;
+    position:absolute;
+    left: 0px;
+    top: 26px;
+    height:60px;
+    width:100%;
+    text-align:center;
+    font-weight: 600;
+    font-size:19px;
+}
