@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\Agendamentos;
+use App\Models\agendamentos;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
