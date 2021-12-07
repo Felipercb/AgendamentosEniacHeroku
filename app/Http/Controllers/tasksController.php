@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Agendamentos;
+use App\Models\agendamentos;
 use Illuminate\Http\Request;
 
 

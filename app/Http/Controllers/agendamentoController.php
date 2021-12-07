@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Helper\conversorHorariosSegundos;
 use App\Http\Requests\agendamentosFormRequest;
-use App\Models\{Agendamentos, Espacos, Horarios, RecAudioVisuais, ServicosExtras, Staff, Mensagem};
+use App\Models\{agendamentos, Espacos, Horarios, RecAudioVisuais, ServicosExtras, staff, Mensagem};
 use App\Services\criadorAgendamentos;
 use App\Services\removedorAgendamentos;
 use Carbon\Carbon;

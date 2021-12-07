@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ { ConfiguracaoHorarios, Espacos , Staff , RecAudioVisuais , ServicosExtras, User};
+use App\Models\ { ConfiguracaoHorarios, Espacos , staff , RecAudioVisuais , ServicosExtras, User};
 use App\Services\atualizadorDeHorarios;
 use App\Services\paginaConfiguracoes;
 use Illuminate\Http\Request;
