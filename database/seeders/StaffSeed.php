@@ -16,11 +16,11 @@ class StaffSeed extends Seeder
     public function run()
     {
         DB::beginTransaction();
-            staff::create(["nome" => "Bombeiro Civil"]);
-            staff::create(["nome" => "Limpeza"]);
-            staff::create(["nome" => "Recepcionista"]);
-            staff::create(["nome" => "Segurança"]);
-            staff::create(["nome" => "Suporte Técnico"]);
+            Staff::create(["nome" => "Bombeiro Civil"]);
+            Staff::create(["nome" => "Limpeza"]);
+            Staff::create(["nome" => "Recepcionista"]);
+            Staff::create(["nome" => "Segurança"]);
+            Staff::create(["nome" => "Suporte Técnico"]);
         DB::commit();
     }
 }

@@ -16,7 +16,7 @@ class suporteController extends Controller
         $hoje = Carbon::now();
         $hoje_mais_duas_semanas = Carbon::now()->addDays(14);
 
-        $agendamentos = agendamentos::where([
+        $agendamentos = Agendamentos::where([
             ['tempo_inicial', '>=', $hoje],
             ['tempo_inicial', '<=', $hoje_mais_duas_semanas]
         ])
@@ -31,7 +31,7 @@ class suporteController extends Controller
     public function responsavel(Request $request) {
 
         DB::beginTransaction();
-        $agendamento = agendamentos::find($request->id);
+        $agendamento = Agendamentos::find($request->id);
         $agendamento->suporte_id = Auth::user()->id;
         $agendamento->save(); 
         DB::commit();
@@ -43,7 +43,7 @@ class suporteController extends Controller
     public function remover_responsabilidade(Request $request) {
 
         DB::beginTransaction();
-        $agendamento = agendamentos::find($request->id);
+        $agendamento = Agendamentos::find($request->id);
         $agendamento->suporte_id = null;
         $agendamento->save();
         DB::commit();
@@ -54,7 +54,7 @@ class suporteController extends Controller
 
     public function consulta(Request $request) {
 
-        $agendamentos = agendamentos::where('id', $request->id)->with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')->get();
+        $agendamentos = Agendamentos::where('id', $request->id)->with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')->get();
 
         return view('suporte.index', compact('agendamentos'));
 

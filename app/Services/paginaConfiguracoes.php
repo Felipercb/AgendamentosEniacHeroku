@@ -24,7 +24,7 @@ class paginaConfiguracoes
             $espaco = ServicosExtras::create(['nome' => $valor , 'descricao' => '']);
             break;
             case 'staff': 
-            $espaco = staff::create(['nome' => $valor , 'descricao' => '']);
+            $espaco = Staff::create(['nome' => $valor , 'descricao' => '']);
             break;
         }
       DB::commit(); 
@@ -53,7 +53,7 @@ class paginaConfiguracoes
         break;
         
         case 'staff': 
-            $staff = staff::find($id);
+            $staff = Staff::find($id);
             $staff->nome = $valor;
             $staff->save();
         break;
@@ -83,7 +83,7 @@ class paginaConfiguracoes
             break;
 
             case 'staff': 
-            $espaco = staff::find($id);
+            $espaco = Staff::find($id);
             $espaco->delete();
             break;
         }

@@ -13,6 +13,6 @@ class Responsavel extends Model
 
     public function agendamentos () 
     {
-        return $this->belongsTo(agendamentos::class);
+        return $this->belongsTo(Agendamentos::class);
     }
 }

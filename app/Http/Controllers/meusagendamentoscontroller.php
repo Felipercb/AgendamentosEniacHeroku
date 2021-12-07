@@ -12,7 +12,7 @@ class meusagendamentoscontroller extends Controller
 {
     public function index(Request $req)
     {
-        $agendamentos = agendamentos::where('email_conta', Auth::user()->email)->with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')
+        $agendamentos = Agendamentos::where('email_conta', Auth::user()->email)->with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')
         ->orderBy('tempo_inicial')
         ->get();
 

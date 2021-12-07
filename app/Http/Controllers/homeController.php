@@ -15,7 +15,7 @@ class homeController extends Controller
 
     public function index(Request $req)
     {
-        $agendamentos = agendamentos::where('publico', 1)->with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')->get();
+        $agendamentos = Agendamentos::where('publico', 1)->with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')->get();
         //dd($agendamentos);
         return view('home.index' , [
             'agendamentos' => $agendamentos,

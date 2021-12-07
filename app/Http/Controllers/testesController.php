@@ -21,7 +21,7 @@ class testesController extends Controller
         return response (ConfiguracaoHorarios::where('id_semana' , '=' , $diasemana)->first());
         
 
-        //$agendamentos = agendamentos::where('publico', 1)->with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')->get();
+        //$agendamentos = Agendamentos::where('publico', 1)->with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')->get();
 
     }
 }

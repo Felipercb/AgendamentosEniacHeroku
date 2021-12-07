@@ -39,7 +39,7 @@ class criadorAgendamentos
          ])->get();
       $hFIm = $hFIm[0]->horarios;
 
-      $agendamento = agendamentos::create([
+      $agendamento = Agendamentos::create([
          'descricao' => $descricao,
          'nome' => $nome_evento,
          'tempo_inicial' => "$data $hInicio",

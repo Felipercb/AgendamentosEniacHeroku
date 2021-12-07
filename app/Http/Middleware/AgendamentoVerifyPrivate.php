@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\Agendamentos;
+use App\Models\agendamentos;
 use Carbon\Carbon;
 use Closure;
 use Illuminate\Http\Request;
@@ -22,7 +22,7 @@ class AgendamentoVerifyPrivate
     public function handle(Request $request, Closure $next)
     {   
         $hoje = Carbon::now();
-        $agendamento = agendamentos::where('id', $request->id)->get();
+        $agendamento = Agendamentos::where('id', $request->id)->get();
         
         if(!$agendamento->isEmpty())
         {

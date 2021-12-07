@@ -12,7 +12,7 @@ class removedorAgendamentos
    public function apagarAgendamento($agendamento_id)
    {
       DB::beginTransaction();
-      $agendamento = agendamentos::find($agendamento_id);
+      $agendamento = Agendamentos::find($agendamento_id);
       $agendamento->RecursosAudioVisuais()->detach();
       $agendamento->ServicosExtras()->detach();
       $agendamento->Staff()->detach();

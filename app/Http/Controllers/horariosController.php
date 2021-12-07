@@ -29,7 +29,7 @@ class horariosController extends Controller
         //Pesquisa na tabela agendamentos as datas que estão entre a $data e $data2 e ordena pelo horário inicial
         //Assim teremos a lista de agendamentos que ocorrem no mesmo dia, sendo oredenados pelo horário
         //O tratamento de como os botões de horários serão exibitos será feito no html
-        $horarios = agendamentos::whereBetween('tempo_inicial' , [$data , $data2])->orderBy('tempo_inicial')->get();
+        $horarios = Agendamentos::whereBetween('tempo_inicial' , [$data , $data2])->orderBy('tempo_inicial')->get();
         //dd($horarios);
         $idSemana = $this->diaSemana($data);
         $diasSemana = ["domingo" , "segunda-feira" , "terça-feira" , "quarta-feira" , "quinta-feira" , "sexta-feira" , "sábado" ];
