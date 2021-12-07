@@ -29,8 +29,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('auth/google', [authenticateUsersController::class, 'redirectToGoogle']);
-Route::get('auth/google/callback', [authenticateUsersController::class, 'handleGoogleCallback' ]);
+Route::get('/auth/google', [authenticateUsersController::class, 'redirectToGoogle']);
+Route::get('/auth/google/callback', [authenticateUsersController::class, 'handleGoogleCallback' ]);
 
 Route::group(['middleware' => ['auth']], function () {
 
