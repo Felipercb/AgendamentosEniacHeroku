@@ -32,7 +32,7 @@ class Agendamentos extends Model
 
     public function Staff () 
     {
-        return $this->belongsToMany(Staff::class, 'agendamentos_staff', 'agendamentos_id' ,'staff_id');
+        return $this->belongsToMany(staff::class, 'agendamentos_staff', 'agendamentos_id' ,'staff_id');
     }
 
     public function Espacos() 
