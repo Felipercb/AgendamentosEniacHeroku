@@ -16,7 +16,7 @@ class configuracoesController extends Controller
             $espacos = Espacos::query()->orderBy('espaco')->get();
             $recAV = RecAudioVisuais::query()->orderBy('nome')->get();
             $servEx = ServicosExtras::query()->orderBy('nome')->get();
-            $staff = Staff::query()->orderBy('nome')->get();
+            $staff = staff::query()->orderBy('nome')->get();
             $config_horarios = ConfiguracaoHorarios::orderBy('id_semana')->get();
             //dd($config_horarios);
             return view('configuracoes.index', [

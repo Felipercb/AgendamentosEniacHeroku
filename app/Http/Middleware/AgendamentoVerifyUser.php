@@ -20,7 +20,7 @@ class AgendamentoVerifyUser
      */
     public function handle(Request $request, Closure $next)
     {
-        $agendamento = Agendamentos::where("id" , $request->id)->get();
+        $agendamento = agendamentos::where("id" , $request->id)->get();
 
         if(!$agendamento->isEmpty()) 
         {

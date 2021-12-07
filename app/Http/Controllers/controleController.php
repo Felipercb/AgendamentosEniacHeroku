@@ -12,7 +12,7 @@ class controleController extends Controller
 {
     public function index(Request $req)
     {
-        $agendamentos = Agendamentos::with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')
+        $agendamentos = agendamentos::with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')
         ->orderBy('tempo_inicial')
         ->get();
 

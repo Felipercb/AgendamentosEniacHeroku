@@ -22,7 +22,7 @@ class agendamentoController extends Controller
         $espacos = Espacos::query()->orderBy('espaco')->get();
         $recAV = RecAudioVisuais::query()->orderBy('nome')->get();
         $servEx = ServicosExtras::query()->orderBy('nome')->get();
-        $staff = Staff::query()->orderBy('nome')->get();
+        $staff = staff::query()->orderBy('nome')->get();
         $dateNow = Carbon::now();
 
 
@@ -61,11 +61,11 @@ class agendamentoController extends Controller
 
     public function edit(Request $req)
     {   
-        $agendamento = Agendamentos::where("id" , $req->id)->get();
+        $agendamento = agendamentos::where("id" , $req->id)->get();
 
         $recAV = RecAudioVisuais::query()->orderBy('nome')->get();
         $servEx = ServicosExtras::query()->orderBy('nome')->get();
-        $staff = Staff::query()->orderBy('nome')->get();
+        $staff = staff::query()->orderBy('nome')->get();
 
         return view('agendar.edit',[
         'agendamento' =>  $agendamento[0],
@@ -82,12 +82,12 @@ class agendamentoController extends Controller
         $descricao = $request->obs;
         $publico = $request->publico;
     
-        $agendamento = Agendamentos::find($agendamento_id);
+        $agendamento = agendamentos::find($agendamento_id);
         $agendamento->RecursosAudioVisuais()->detach();
         $agendamento->ServicosExtras()->detach();
         $agendamento->Staff()->detach();
         
-        $altera = Agendamentos::find($agendamento_id);
+        $altera = agendamentos::find($agendamento_id);
         $altera->nome = $nomeEvento;
         $altera->descricao = $descricao;
         $altera->publico = $publico == "on";

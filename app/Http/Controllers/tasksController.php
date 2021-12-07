@@ -15,14 +15,14 @@ class tasksController extends Controller
      */
     public function index(Request $req)
     {
-        $agendamentos = Agendamentos::where('publico', 1)->with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')->get();
+        $agendamentos = agendamentos::where('publico', 1)->with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')->get();
 
         return view('home.index', compact('agendamentos'));
     }
 
 
     public function detalhes(Request $req){
-        $agendamentos = Agendamentos::where('id', $req->id)->with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')->get();
+        $agendamentos = agendamentos::where('id', $req->id)->with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')->get();
         return view('agendar.detalhes', compact('agendamentos'));
     }
 

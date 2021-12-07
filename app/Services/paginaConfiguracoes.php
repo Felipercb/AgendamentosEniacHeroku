@@ -53,7 +53,7 @@ class paginaConfiguracoes
         break;
         
         case 'staff': 
-            $staff = Staff::find($id);
+            $staff = staff::find($id);
             $staff->nome = $valor;
             $staff->save();
         break;
