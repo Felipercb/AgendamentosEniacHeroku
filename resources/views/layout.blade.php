@@ -25,7 +25,7 @@
         </button>
 
         @auth
-        <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="home" href="/meusagendamentos">Meus agendamentos</a>
@@ -33,7 +33,7 @@
             <li class="nav-item">
               <a class="nav-link active" href="/agendar">Agendar</a>
             </li>
-
+            
             @if ($admin || $suporte)
             <li class="nav-item">
               <a class="nav-link active" href="/suporte">Suporte</a>
@@ -47,9 +47,17 @@
             @endif
 
             @if ($admin)
-            <li class="nav-item">
-              <a class="nav-link active" href="/controle">Controle</a>
-            </li>
+            <div class="dropdown show">
+              <li class="nav-item">
+              <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Controle
+              </a>
+            
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Agendamentos</a>
+                <a class="dropdown-item" href="#">Suportes</a>
+              </div>
+            </div>
             @endif
 
           </ul>
