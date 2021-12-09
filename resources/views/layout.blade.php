@@ -49,9 +49,10 @@
             @if ($admin)
             <div class="dropdown show">
               <li class="nav-item">
-              <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Controle
-              </a>
+                <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Controle
+                </a>
+              </li> 
             
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="#">Agendamentos</a>
