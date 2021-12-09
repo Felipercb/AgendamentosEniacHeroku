@@ -29,4 +29,21 @@ class controleController extends Controller
             'usuariosSuportes' => $usuariosSuportes
     ]);
     }
+
+    public function removeSuporte(Request $request) {
+
+        $suporte = User::find($request->id);
+        $suporte->update(['suporte' => false]);
+
+        return redirect()->route('controle');
+
+    }
+
+    public function adicionaSuporte(Request $request) {
+
+        $suporte = User::find($request->id);
+        $suporte->update(['suporte' => true]);
+
+        return redirect()->route('controle');
+    }
 }

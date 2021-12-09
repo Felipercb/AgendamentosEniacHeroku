@@ -46,8 +46,8 @@ class agendamentoController extends Controller
         $id_agendamento = $agendar->criarAgendamento($req);
 
         $url = route('suporte_consulta', ['id' => $id_agendamento]);
-
-        Mensagem::sendMessage("<b>Evento: </b>" . $req->nome_evento . "\n" . '<b>Agendado para: </b>'. $dataBR . "\n" . "<b>Responsável: </b>" . $req->nome . "\n\n" . "Para se responsabilizar pelo evento, clique no link abaixo: " . "\n" . "<a href ='" . $url . "'>Se responsabilizar!</a>");
+        
+        Mensagem::sendMessage("<b>Evento: </b>" . $req->nome_evento . "\n" . "<b>Agendado para: </b>". $dataBR . "\n" . "<b>Responsável: </b>" . $req->nome . "\n\n" . "Para se responsabilizar pelo evento, clique no link abaixo: " . "\n" . "<a href ='" . $url . "'>Se responsabilizar!</a>");
 
         return redirect()->route('home');
     }

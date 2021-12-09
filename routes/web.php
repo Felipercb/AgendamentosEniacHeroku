@@ -46,6 +46,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/suporte/remover/{id}', [suporteController::class , 'remover_responsabilidade'])->name('suporte_post_remover');
 
     Route::get('/controle', [controleController::class , 'index'])->name('controle');
+    Route::post('/controle/remover/{id}', [controleController::class , 'removeSuporte'])->name('removeSuporte');
+    Route::post('/controle/adicionar/{id}', [controleController::class , 'adicionaSuporte'])->name('adicionaSuporte');
 
     Route::get('/home/agendamento/{id}', [tasksController::class , 'detalhes'] )->name('detalhes')->middleware('verificarPrivado');
 

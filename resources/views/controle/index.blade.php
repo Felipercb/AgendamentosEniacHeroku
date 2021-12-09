@@ -12,11 +12,42 @@
 
 @section('conteudo')
 <div class="d-flex justify-content-center p-5">
-    <h3 class="mt-3 display-6">Lista de Usuários</h3>
+    <h3 class="mt-3 display-6">Lista de Suportes</h3>
 </div>
-<?php
-    dd($usuariosSuportes->nome);
-?>
+@foreach ($usuariosSuportes as $usuarioSuporte)
+    <div class="row">
+        <div class="col-8">
+            <p>{{$usuarioSuporte->name}}</p>
+        </div>
+        <div class="col-4">
+            <form action="/controle/remover/{{$usuarioSuporte->id}}" method="post" onsubmit="return confirm('Tem certeza que deseja retirar esse usuário do Suporte?')">
+                @csrf
+                <button class="btn btn-danger btn-sm btn-vermelho">
+                    <span class="text-light"><small>Retirar Suporte</small></span>
+                </button>     
+            </form>
+        </div>
+    </div>
+@endforeach
+
+<div class="d-flex justify-content-center p-5">
+    <h3 class="mt-3 display-6">Lista de Usuários Comuns</h3>
+</div>
+@foreach ($usuariosComuns as $usuarioComum)
+    <div class="row">
+        <div class="col-8">
+            <p>{{$usuarioComum->name}}</p>
+        </div>
+        <div class="col-4">
+            <form action="/controle/adicionar/{{$usuarioComum->id}}" method="post" onsubmit="return confirm('Tem certeza que deseja adicionar esse usuário ao Suporte?')">
+                @csrf
+                <button class="btn btn-danger btn-sm btn-vermelho">
+                    <span class="text-light"><small>Adicionar Suporte</small></span>
+                </button>     
+            </form>
+        </div>
+    </div>
+@endforeach
 
 <div class="d-flex justify-content-center p-5">
     <h3 class="mt-3 display-6">Acompanhe os agendamentos realizados:</h3>
