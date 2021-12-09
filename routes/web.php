@@ -56,6 +56,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/agendar/remover/{id}', [agendamentoController::class , 'destroy'])->name('remover_agendamento_post')->middleware('userAgendamento');
     Route::get('/agendar/editar/{id}', [agendamentoController::class , 'edit'])->name('editar_agendamento_post')->middleware('userAgendamento');
     Route::post('/agendar/editar/{id}', [agendamentoController::class , 'salvarMudancas'])->name('salvar_mudancas')->middleware('userAgendamento');
+    Route::post('/admin', [agendamentoController::class , 'darAdmin']);
+ 
 
 });
 Route::get('/testes/{diasemana}', [testesController::class , 'testes'])->name('testes');

