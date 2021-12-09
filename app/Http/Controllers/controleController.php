@@ -13,8 +13,8 @@ class controleController extends Controller
 {
     public function index(Request $req)
     {
-        $usuariosComuns = User::where('suporte', false);
-        $usuariosSuportes = User::where('suporte', true);
+        $usuariosComuns = User::where('suporte', false)->get();
+        $usuariosSuportes = User::where('suporte', true)->get();
 
         $agendamentos = Agendamentos::with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')
         ->orderBy('tempo_inicial')
