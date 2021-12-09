@@ -15,7 +15,7 @@
     <h3 class="mt-3 display-6">Lista de Usuários</h3>
 </div>
 <?php
-    dd($usuariosSuportes);
+    dd($usuariosSuportes->nome);
 ?>
 
 <div class="d-flex justify-content-center p-5">
