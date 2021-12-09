@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             ServicosextrasSeed::class,
             StaffSeed::class,
             configuracoesSeed::class,
+            UserSeeder::class
         ]);
     }
 }
