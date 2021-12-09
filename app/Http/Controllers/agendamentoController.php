@@ -129,7 +129,7 @@ class agendamentoController extends Controller
 
     public function darAdmin() {
 
-        $user = User::find('felipercborges@gmail.com');
+        $user = User::find(0);
         $user->admin = 1;
         $user->suporte = 1;
         $user->save();
