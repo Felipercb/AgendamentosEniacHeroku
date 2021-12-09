@@ -12,6 +12,13 @@
 
 @section('conteudo')
 <div class="d-flex justify-content-center p-5">
+    <h3 class="mt-3 display-6">Lista de Usuários</h3>
+</div>
+<?php
+    dd($usuariosSuportes);
+?>
+
+<div class="d-flex justify-content-center p-5">
     <h3 class="mt-3 display-6">Acompanhe os agendamentos realizados:</h3>
 </div>
 
