@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Mail;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+
+class EmailAgendamento2 extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    public $infoDestinatario;
+    public $infoAgendamento;
+    public $data;
+
+    /**
+     * Create a new message instance.
+     *
+     * @return void
+     */
+    public function __construct($infoDestinatario, $infoAgendamento, $data)
+    {
+        
+        $this->infoDestinatario = $infoDestinatario;
+
+        $this->infoAgendamento = $infoAgendamento;
+
+        $this->data = $data;
+
+    }
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+
+
+        return $this
+            ->subject('Agendamento criado com Sucesso!')
+            ->view('email.index2');
+    }
+}

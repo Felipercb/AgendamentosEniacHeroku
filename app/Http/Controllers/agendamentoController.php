@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Helper\conversorHorariosSegundos;
 use App\Http\Requests\agendamentosFormRequest;
+use App\Mail\EmailAgendamento;
+use App\Mail\EmailAgendamento2;
 use App\Models\{agendamentos, Espacos, Horarios, RecAudioVisuais, ServicosExtras, staff, Mensagem, User};
 use App\Services\criadorAgendamentos;
 use App\Services\removedorAgendamentos;
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Mail;
 
 class agendamentoController extends Controller
 {
@@ -47,6 +50,17 @@ class agendamentoController extends Controller
 
         $url = route('suporte_consulta', ['id' => $id_agendamento]);
         
+        $email1 = $req->email;
+
+        $email2 = Auth::user()->email;
+
+        if($email1 == $email2) {
+            Mail::to($email1)->send(new EmailAgendamento($req, $dataBR));
+        } else {
+            Mail::to($email1)->send(new EmailAgendamento($req, $dataBR));
+            Mail::to($email2)->send(new EmailAgendamento2(Auth::user(), $req, $dataBR));
+        }
+
         Mensagem::sendMessage("<b>Evento: </b>" . $req->nome_evento . "\n" . "<b>Agendado para: </b>". $dataBR . "\n" . "<b>Responsável: </b>" . $req->nome . "\n\n" . "Para se responsabilizar pelo evento, clique no link abaixo: " . "\n" . "<a href ='" . $url . "'>Se responsabilizar!</a>");
 
         return redirect()->route('home');
