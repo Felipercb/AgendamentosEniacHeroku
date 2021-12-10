@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use agendamentos as GlobalAgendamentos;
 use App\Models\agendamentos;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,8 @@ class suporteController extends Controller
         $hoje = Carbon::now();
         $hoje_mais_duas_semanas = Carbon::now()->addDays(14);
 
+        $suportes = User::where('suporte', 1)->get();
+
         $agendamentos = Agendamentos::where([
             ['tempo_inicial', '>=', $hoje],
             ['tempo_inicial', '<=', $hoje_mais_duas_semanas]
@@ -25,6 +28,7 @@ class suporteController extends Controller
 
         return view('suporte.index', [
             'agendamentos' => $agendamentos,
+            'suportes' => $suportes
         ]);
     }
 

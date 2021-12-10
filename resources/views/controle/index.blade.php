@@ -15,18 +15,19 @@
     <h3 class="mt-3 display-6">Lista de Suportes</h3>
 </div>
 @foreach ($usuariosSuportes as $usuarioSuporte)
-    <div class="row">
-        <div class="col-8">
-            <p>{{$usuarioSuporte->name}}</p>
-        </div>
-        <div class="col-4">
-            <form action="/controle/remover/{{$usuarioSuporte->id}}" method="post" onsubmit="return confirm('Tem certeza que deseja retirar esse usuário do Suporte?')">
-                @csrf
-                <button class="btn btn-danger btn-sm btn-vermelho">
-                    <span class="text-light"><small>Retirar Suporte</small></span>
-                </button>     
-            </form>
-        </div>
+    
+    <div class="container">
+        <ul class="list-group">
+            <li style="background-color: #d9eaff" class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{$usuarioSuporte->name}}</span>
+                    <form action="/controle/remover/{{$usuarioSuporte->id}}" method="post" onsubmit="return confirm('Tem certeza que deseja retirar esse usuário do Suporte?')">
+                        @csrf
+                        <button class="btn btn-danger btn-sm btn-vermelho">
+                            <span class="text-light"><small>Retirar do Suporte</small></span>
+                        </button>     
+                    </form>
+            </li>
+        </ul>
     </div>
 @endforeach
 
@@ -34,18 +35,19 @@
     <h3 class="mt-3 display-6">Lista de Usuários Comuns</h3>
 </div>
 @foreach ($usuariosComuns as $usuarioComum)
-    <div class="row">
-        <div class="col-8">
-            <p>{{$usuarioComum->name}}</p>
-        </div>
-        <div class="col-4">
-            <form action="/controle/adicionar/{{$usuarioComum->id}}" method="post" onsubmit="return confirm('Tem certeza que deseja adicionar esse usuário ao Suporte?')">
-                @csrf
-                <button class="btn btn-danger btn-sm btn-vermelho">
-                    <span class="text-light"><small>Adicionar Suporte</small></span>
-                </button>     
-            </form>
-        </div>
+
+    <div class="container">
+        <ul class="list-group">
+            <li style="background-color: #d9eaff" class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{$usuarioComum->name}}</span>
+                    <form action="/controle/adicionar/{{$usuarioComum->id}}" method="post" onsubmit="return confirm('Tem certeza que deseja adicionar esse usuário ao Suporte?')">
+                        @csrf
+                        <button class="btn btn-danger btn-sm btn-vermelho">
+                            <span class="text-light"><small>Adicionar ao Suporte</small></span>
+                        </button>     
+                    </form>
+            </li>
+        </ul>
     </div>
 @endforeach
 
@@ -68,7 +70,23 @@
                 <span class="align-middle display-1 p-2" style="font-size: 20px;"><b style="display:inline-block; margin-top: 12px;">Nome do Evento:</b> {{$agendamento->nome}} / <b>Local:</b> {{$agendamento->Espacos[0]->espaco}}</span>
                 <div class="d-flex justify-content-between ">
                     <p class="display-1" style="font-size: 12px;margin-bottom: -2px;margin-left: 8px;margin-top: 3px;">Data: {{$agendamento->tempo_inicial->format("d/m/o")}}</p>
-                    <p class="display-1" style="font-size: 13px;margin-bottom: -2px;"> Responsável: {{$agendamento->responsavel->nome}}</p>
+                    
+                        <p class="display-1" style="font-size: 13px;margin-bottom: -20px;">
+                        @foreach ($usuariosSuportes as $usuarioSuporte)
+                        
+                            @if ($agendamento->suporte_id == $usuarioSuporte->id)
+    
+                                Suporte Responsável: {{$usuarioSuporte->name}}
+    
+                            @elseif(empty($agendamento->suporte_id))
+    
+                                Não há suporte responsável @break
+    
+                            @endif
+    
+                        @endforeach
+                    </p>
+                    
                 </div>
             </li>
             <div class="row p-3" id="agendamento-{{$agendamento->id}}" hidden>

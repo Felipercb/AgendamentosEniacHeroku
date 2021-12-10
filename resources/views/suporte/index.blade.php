@@ -32,7 +32,27 @@
             <button class="btn btn-primary btn-abrir-fechar" onclick="criarEquipe(0, {{$agendamento->id}})" id="btn_criar_equipe_menos{{$agendamento->id}}" hidden>
                 <i class="fas fa-minus-square"> Fechar</i>
             </button>
-            <span class="align-middle display-1 p-2" style="font-size: 20px;"><b>LOCAL: </b>{{$agendamento->Espacos[0]->espaco}} / <b style="display:inline-block; margin-top: 12px;">DATA:</b> {{$agendamento->tempo_inicial->format("d/m/o")}} / <b>HORÁRIO:</b> {{$agendamento->tempo_inicial->format("H:i:s")}} até {{$agendamento->tempo_final->format("H:i:s")}}</span>
+            <span class="align-middle display-1 p-2" style="font-size: 20px;"><b>LOCAL: </b>{{$agendamento->Espacos[0]->espaco}} / 
+                <b style="display:inline-block; margin-top: 12px;">DATA:</b> {{$agendamento->tempo_inicial->format("d/m/o")}} / 
+                <b>HORÁRIO:</b> {{$agendamento->tempo_inicial->format("H:i:s")}} até {{$agendamento->tempo_final->format("H:i:s")}}
+                <div class="d-flex justify-content-center">
+                    <p class="display-1" style="font-size: 13px;margin-bottom: -20px;">
+                    @foreach ($suportes as $suporte)
+                    
+                        @if ($agendamento->suporte_id == $suporte->id)
+
+                            Suporte Responsável: {{$suporte->name}}
+
+                        @elseif(empty($agendamento->suporte_id))
+
+                            Não há suporte responsável @break
+
+                        @endif
+
+                    @endforeach
+                    </p>
+                </div>
+            </span>
         </li>
         <div class="row justify-content-center p-3" id="agendamento-{{$agendamento->id}}" hidden>
             <div class="col col-5 p-1">
