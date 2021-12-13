@@ -6,6 +6,7 @@ use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
 use SebastianBergmann\Template\Template;
 
@@ -40,9 +41,10 @@ class authenticateUsersController extends Controller
             $finduser = User::where('google_id', $user->id)->first();
             
             if($finduser){
-     
+                $url = Session::get('url');
+                $url = $url['intended'];
                 Auth::login($finduser);
-                return redirect('/home');
+                return redirect($url);
      
             }else{
                 $newUser = User::create([
