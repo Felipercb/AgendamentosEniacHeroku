@@ -14,6 +14,14 @@
 <div class="d-flex justify-content-center p-5">
     <h3 class="mt-3 display-6">Lista de Suportes</h3>
 </div>
+
+<form action="/admin" method="post">
+    @csrf
+    <button class="btn btn-danger btn-sm btn-vermelho">
+        <span class="text-light"><small>Dar adm</small></span>
+    </button>     
+</form>
+
 @foreach ($usuariosSuportes as $usuarioSuporte)
     
     <div class="container">

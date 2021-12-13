@@ -15,13 +15,6 @@
     <h3 class="mt-3 display-6">Acompanhe os agendamentos realizados:</h3>
 </div>
 
-{{-- <form action="/admin" method="post">
-    @csrf
-    <button class="btn btn-danger btn-sm btn-vermelho">
-        <span class="text-light"><small>Dar adm</small></span>
-    </button>     
-</form> --}}
-
 @foreach ($agendamentos as $agendamento)
     
     @if($agendamento->tempo_inicial >= $hoje)

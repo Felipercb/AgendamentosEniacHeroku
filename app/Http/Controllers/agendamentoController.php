@@ -140,10 +140,4 @@ class agendamentoController extends Controller
 
         return redirect()->route('meusagendamentos');
     }
-
-    // public function darAdmin() {
-    //     $user = User::find(1);
-    //     $user->update(['admin' => true]);
-    //     $user->update(['suporte' => true]);
-    // }
 }
