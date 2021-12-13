@@ -15,28 +15,31 @@
     <h3 class="mt-3 display-6">Lista de Suportes</h3>
 </div>
 
-<form action="/admin" method="post">
+{{-- <form action="/admin" method="post">
     @csrf
     <button class="btn btn-danger btn-sm btn-vermelho">
         <span class="text-light"><small>Dar adm</small></span>
     </button>     
-</form>
+</form> --}}
 
 @foreach ($usuariosSuportes as $usuarioSuporte)
-    
-    <div class="container">
-        <ul class="list-group">
-            <li style="background-color: #d9eaff" class="list-group-item d-flex justify-content-between align-items-center">
-                <span>{{$usuarioSuporte->name}}</span>
-                    <form action="/controle/remover/{{$usuarioSuporte->id}}" method="post" onsubmit="return confirm('Tem certeza que deseja retirar esse usuário do Suporte?')">
-                        @csrf
-                        <button class="btn btn-danger btn-sm btn-vermelho">
-                            <span class="text-light"><small>Retirar do Suporte</small></span>
-                        </button>     
-                    </form>
-            </li>
-        </ul>
-    </div>
+
+    @if (!$usuarioSuporte->admin == 1)    
+
+        <div class="container">
+            <ul class="list-group">
+                <li style="background-color: #d9eaff" class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>{{$usuarioSuporte->name}}</span>
+                        <form action="/controle/remover/{{$usuarioSuporte->id}}" method="post" onsubmit="return confirm('Tem certeza que deseja retirar esse usuário do Suporte?')">
+                            @csrf
+                            <button class="btn btn-danger btn-sm btn-vermelho">
+                                <span class="text-light"><small>Retirar do Suporte</small></span>
+                            </button>     
+                        </form>
+                </li>
+            </ul>
+        </div>
+    @endif
 @endforeach
 
 <div class="d-flex justify-content-center p-5">

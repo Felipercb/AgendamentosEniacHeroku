@@ -59,7 +59,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/agendar/editar/{id}', [agendamentoController::class , 'edit'])->name('editar_agendamento_post')->middleware('userAgendamento');
     Route::post('/agendar/editar/{id}', [agendamentoController::class , 'salvarMudancas'])->name('salvar_mudancas')->middleware('userAgendamento');
 
-    Route::post('/admin', [controleController::class , 'darAdmin']);
+    // Route::post('/admin', [controleController::class , 'darAdmin']);
  
 
 });
