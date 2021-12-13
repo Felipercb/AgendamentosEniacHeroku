@@ -6,5 +6,10 @@
     <li>Nome do evento: {{$infoAgendamento->nome_evento}}</li>
     <li>Descrição: {{$infoAgendamento->obs}}</li>
     <li>Data: {{$data}}</li>
-
 </ul>
+<br>
+<p>
+    Confira essas e mais outras informações sobre o agendamento no 
+    calendário do site (no caso de um agendamento público) ou na aba "Meus agendamentos"
+    quando logado com o email que realizou o agendamento.
+<p>

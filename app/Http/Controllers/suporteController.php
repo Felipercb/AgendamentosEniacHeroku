@@ -60,7 +60,9 @@ class suporteController extends Controller
 
         $agendamentos = Agendamentos::where('id', $request->id)->with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')->get();
 
-        return view('suporte.index', compact('agendamentos'));
+        $suportes = User::where('suporte', 1)->get();
+
+        return view('suporte.index', compact('agendamentos', 'suportes'));
 
         }
 
