@@ -42,9 +42,16 @@ class authenticateUsersController extends Controller
             
             if($finduser){
                 $url = Session::get('url');
+                if(!empty($url)) {
                 $url = $url['intended'];
                 Auth::login($finduser);
+                
                 return redirect($url);
+                } else {
+                    Auth::login($finduser);
+                    return redirect('/home');
+                }
+
      
             }else{
                 $newUser = User::create([
