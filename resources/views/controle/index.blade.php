@@ -135,35 +135,6 @@
 
                     </ul>
                 </div>
-                <div class="col col-1 p-1 align-self-end">
-                    @auth
-                        @if ($agendamento->email_conta == Auth::user()->email)
-                            <form action="/agendar/editar/{{$agendamento->id}}" method="get">
-                                <button class="btn btn-primary btn-sm btn-editar" action="/teste" >
-                                    <i class="fas fa-edit"></i>
-                                    <span class="text-light"><small>(Editar)</small></span>
-                                </button>
-                                
-                            </form>
-
-                        @endif
-                    @endauth
-                </div>
-                <div class="col col-1 p-1 align-self-end">
-                    @auth
-                        @if ($agendamento->email_conta == Auth::user()->email)
-
-                            <form action="/agendar/remover/{{$agendamento->id}}" method="post" onsubmit="return confirm('Tem certeza que quer excluir o agendamento número {{$agendamento->id}}?')">
-                                @csrf
-                                <button class="btn btn-danger btn-sm btn-vermelho">
-                                    <i class="fas fa-trash-alt"></i>
-                                    <span class="text-light"><small>(Excluir)</small></span>
-                                </button>     
-                            </form>
-                            
-                        @endif
-                    @endauth
-                </div>
             </div>
         </ul>
     @endif
