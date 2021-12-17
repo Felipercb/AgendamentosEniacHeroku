@@ -22,17 +22,11 @@ class EmailAgendamento2 extends Mailable
      */
     public function __construct($infoDestinatario, $infoAgendamento, $data, $qrcode)
     {
-        
         $this->infoDestinatario = $infoDestinatario;
-
         $this->infoAgendamento = $infoAgendamento;
-
         $this->data = $data;
-
         $this->qrcode = $qrcode;
-
     }
-
     /**
      * Build the message.
      *
@@ -40,8 +34,6 @@ class EmailAgendamento2 extends Mailable
      */
     public function build()
     {
-
-
         return $this
             ->subject('Agendamento criado com Sucesso!')
             ->view('email.index2');

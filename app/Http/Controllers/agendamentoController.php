@@ -40,13 +40,13 @@ class agendamentoController extends Controller
             'dateNow' => $dateNow
         ]);
     }
+
     public function store(agendamentosFormRequest /*Request*/ $req, criadorAgendamentos $agendar )
     {
         
         $data = $req->data;
         $dataAjuste = explode("-", $data);
         $dataBR = $dataAjuste[2] ."/". $dataAjuste[1] ."/". $dataAjuste[0];
-        
         $email1 = $req->email;
         $email2 = Auth::user()->email;
 
@@ -54,14 +54,12 @@ class agendamentoController extends Controller
         $id_agendamento = $agendar->criarAgendamento($req);
         
         // Requisição POST para API do Qrcode
-
         $qrcode = Http::post('https://geradorqrcode.herokuapp.com/post', [
             'nome' => $req->nome,
             'evento' => $req->nome_evento,
             'descricao' => $req->obs,
         ]);
 
-        //$qrcode = response($qrcode)->header('Content-Type', 'image/png');
         // Salvando imagem no Public
         define('UPLOAD_DIR', 'qrcode');
         $img = $qrcode;
@@ -71,7 +69,6 @@ class agendamentoController extends Controller
         $file = UPLOAD_DIR . 'agendamento' . '.png';
         file_put_contents($file, $data);
 
-        
         $qrcode = $file;
         // Envio de Email
         if($email1 == $email2) {

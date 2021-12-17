@@ -24,7 +24,7 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
 <script>
     $(document).ready(function() {
-        // page is now ready, initialize the calendar...
+
         $('#calendar').fullCalendar({
 
             monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
@@ -37,10 +37,6 @@
             },
             timeFormat: 'H:mm',
 
-            
-            
-
-            // put your options and callbacks here
             events : [
                 @foreach($agendamentos as $agendamento)
                 {
@@ -50,9 +46,7 @@
                     borderColor: 'white',
                 },
                 @endforeach
-                
             ]
-            
         })
     });
 </script>

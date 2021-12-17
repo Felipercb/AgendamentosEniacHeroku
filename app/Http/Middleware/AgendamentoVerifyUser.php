@@ -24,20 +24,14 @@ class AgendamentoVerifyUser
 
         if(!$agendamento->isEmpty()) 
         {
-
             if($agendamento[0]->email_conta ==  Auth::user()->email)
             {
-
                 return $next($request);
-
             }
             else
             {
-
-                $mensagem = "Voce não tem permissão para editar esse agendamento!";
-                
+                $mensagem = "Voce não tem permissão para editar esse agendamento!"; 
             }
-            
         }
         else
         {

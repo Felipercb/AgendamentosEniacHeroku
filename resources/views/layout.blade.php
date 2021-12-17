@@ -28,56 +28,55 @@
         </button>
 
         @auth
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="home" href="/meusagendamentos">Meus agendamentos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/agendar">Agendar</a>
-            </li>
-            
-            @if ($admin || $suporte)
-            <li class="nav-item">
-              <a class="nav-link active" href="/suporte">Suporte</a>
-            </li>
-            @endif 
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="home" href="/meusagendamentos">Meus agendamentos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/agendar">Agendar</a>
+              </li>
+              
+              @if ($admin || $suporte)
+                <li class="nav-item">
+                  <a class="nav-link active" href="/suporte">Suporte</a>
+                </li>
+              @endif 
 
-            @if ($admin)
-            <li class="nav-item">
-              <a class="nav-link active" href="/configuracoes">Configurações</a>
-            </li>
-            @endif
+              @if ($admin)
+                <li class="nav-item">
+                  <a class="nav-link active" href="/configuracoes">Configurações</a>
+                </li>
+              @endif
 
-            @if ($admin)
-            <li class="nav-item">
-              <a class="nav-link active" href="/controle">Controle</a>
-            </li>
-            @endif
+              @if ($admin)
+                <li class="nav-item">
+                  <a class="nav-link active" href="/controle">Controle</a>
+                </li>
+              @endif
 
-          </ul>
-          <a style="margin-top:5px;" class="navbar-brand">
-            <img src="{{ Auth::user()->foto }}" class="rounded-circle mb-1" width="30" height="30">
-          </a>
-          <a class="navbar-brand">{{ Auth::user()->name }}</a>
-        </div>
+            </ul>
+              <a style="margin-top:5px;" class="navbar-brand">
+                <img src="{{ Auth::user()->foto }}" class="rounded-circle mb-1" width="30" height="30">
+              </a>
+              <a class="navbar-brand">{{ Auth::user()->name }}</a>
+          </div>
         @endauth
-       
       
         @auth
-        <form action="/logout" method="POST" >
-            @csrf
-            <button class="btn btn-danger btn-sm btn-vermelho-sair" type="submit">
-                Sair <i class="fas fa-sign-out-alt"></i>
-            </button>
-        </form>
+          <form action="/logout" method="POST" >
+              @csrf
+              <button class="btn btn-danger btn-sm btn-vermelho-sair" type="submit">
+                  Sair <i class="fas fa-sign-out-alt"></i>
+              </button>
+          </form>
         @endauth
         @guest
-        <form action="/login" method="get" >
-            <button class="btn btn-primary btn-entrar" type="submit">
-              Entrar <i class="fas fa-sign-in-alt"></i>
-            </button>
-        </form>
+          <form action="/login" method="get" >
+              <button class="btn btn-primary btn-entrar" type="submit">
+                Entrar <i class="fas fa-sign-in-alt"></i>
+              </button>
+          </form>
         @endguest
 
       </div>
@@ -95,7 +94,6 @@
         @yield('conteudo')
 
     </div>
-
 
 <body class="body">
     

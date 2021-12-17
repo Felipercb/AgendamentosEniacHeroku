@@ -23,21 +23,18 @@
             @csrf
                 <div class="container mb-2">
                     @foreach ($recAV as $recAV_)   
-                    <div class="form-check mt-2">
-                        <input class="form-check-input input-color" type="checkbox" name="recAv[]" id="recAV{{$recAV_->id}}" value="{{$recAV_->id}}" 
-                        
-                        @foreach ( $agendamento->RecursosAudioVisuais as $recav)
-                            @if ($recav->id == $recAV_->id)
-                                checked
-                            @endif
-                        @endforeach
-                        
-                        >
-                        
-                        <label class="form-check-label" for="recAV{{$recAV_->id}}">
-                            {{$recAV_->nome}}
-                        </label>
-                    </div>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input input-color" type="checkbox" name="recAv[]" id="recAV{{$recAV_->id}}" value="{{$recAV_->id}}" 
+                                @foreach ( $agendamento->RecursosAudioVisuais as $recav)
+                                    @if ($recav->id == $recAV_->id)
+                                        checked
+                                    @endif
+                                @endforeach
+                            >
+                            <label class="form-check-label" for="recAV{{$recAV_->id}}">
+                                {{$recAV_->nome}}
+                            </label>
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -46,20 +43,18 @@
                 <h6>Serviços extras: </h6>
                 <div class="container mb-2">
                     @foreach ($servEx as $servEx_)   
-                    <div class="form-check mt-2">
-                        <input class="form-check-input input-color" type="checkbox" name="servExID[]" id="servExID{{$servEx_->id}}" value="{{$servEx_->id}}"
-                        
-                        @foreach ( $agendamento->ServicosExtras as $servex)
-                            @if ($servex->id == $servEx_->id)
-                                checked
-                            @endif
-                        @endforeach
-
-                        >
-                        <label class="form-check-label" for="servExID{{$servEx_->id}}">
-                            {{$servEx_->nome}}
-                        </label>
-                    </div>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input input-color" type="checkbox" name="servExID[]" id="servExID{{$servEx_->id}}" value="{{$servEx_->id}}"
+                                @foreach ( $agendamento->ServicosExtras as $servex)
+                                    @if ($servex->id == $servEx_->id)
+                                        checked
+                                    @endif
+                                @endforeach
+                            >
+                            <label class="form-check-label" for="servExID{{$servEx_->id}}">
+                                {{$servEx_->nome}}
+                            </label>
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -68,20 +63,18 @@
                 <h6>Staff:</h6>
                 <div class="container mb-2">
                     @foreach ($staff as $staff_)   
-                    <div class="form-check mt-2">
-                        <input class="form-check-input input-color" type="checkbox" name="staffID[]" id="staffID{{$staff_->id}}" value="{{$staff_->id}}"
-                        
-                        @foreach ( $agendamento->Staff as $staff)
-                            @if ($staff->id == $staff_->id)
-                                checked
-                            @endif
-                        @endforeach
-                        
-                        >
-                        <label class="form-check-label" for="staffID{{$staff_->id}}">
-                            {{$staff_->nome}}
-                        </label>
-                    </div>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input input-color" type="checkbox" name="staffID[]" id="staffID{{$staff_->id}}" value="{{$staff_->id}}"
+                                @foreach ( $agendamento->Staff as $staff)
+                                    @if ($staff->id == $staff_->id)
+                                        checked
+                                    @endif
+                                @endforeach
+                            >
+                            <label class="form-check-label" for="staffID{{$staff_->id}}">
+                                {{$staff_->nome}}
+                            </label>
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -99,9 +92,9 @@
             <div class="form-check mb-5">
                 <input class="form-check-input input-color" type="checkbox" name="publico" id="publico" 
                 
-                @if ($agendamento->publico == 1)
-                    checked
-                @endif
+                    @if ($agendamento->publico == 1)
+                        checked
+                    @endif
 
                 >
                 <label class="form-check-label" for="publico">

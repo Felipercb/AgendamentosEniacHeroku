@@ -23,6 +23,7 @@ class tasksController extends Controller
 
     public function detalhes(Request $req){
         $agendamentos = Agendamentos::where('id', $req->id)->with('RecursosAudioVisuais' , 'ServicosExtras' , 'Staff', 'Espacos', 'responsavel')->get();
+        
         return view('agendar.detalhes', compact('agendamentos'));
     }
 

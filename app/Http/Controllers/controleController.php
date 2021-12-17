@@ -47,8 +47,10 @@ class controleController extends Controller
         return redirect()->route('controle');
     }
 
+    /* Function para dar administrador no server (botão comentado na página "controle")*/
+
     // public function darAdmin() {
-    //     $user = User::where('name', 'VINICIUS DE ANDRADE PIOVEZAN');
+    //     $user = User::where('name', 'EXEMPLO');
     //     $user->update(['admin' => true]);
     //     $user->update(['suporte' => true]);
     // }

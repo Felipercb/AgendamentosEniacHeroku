@@ -26,7 +26,7 @@ class AdminVerify
 
         if(Auth::check())
         {
-            $finduser = Auth::user();//User::where('email', Auth::user()->email)->first();
+            $finduser = Auth::user();
 
 
             if ($request->is('configuracoes') && !$finduser->admin) {

@@ -41,7 +41,6 @@
                 </div>
     </div>
 
-
     <div class="tab">
                 <div class="container mb-5">
                     <label for="data" class="form-label">Selecione a data em que o evento irá acontecer:</label>
@@ -61,12 +60,12 @@
                 *Local:
                 <div class="container mb-5">
                     @foreach ($espacos as $espaco)   
-                    <div class="form-check mt-2">
-                        <input class="form-check-input input-color" type="radio" name="espacoID" id="espacoID{{$espaco->id}}" value="{{$espaco->id}}" >
-                        <label class="form-check-label" for="espacoID{{$espaco->id}}">
-                            {{$espaco->espaco}} 
-                        </label>
-                    </div>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input input-color" type="radio" name="espacoID" id="espacoID{{$espaco->id}}" value="{{$espaco->id}}" >
+                            <label class="form-check-label" for="espacoID{{$espaco->id}}">
+                                {{$espaco->espaco}} 
+                            </label>
+                        </div>
                     @endforeach
                 </div>
 
@@ -75,12 +74,12 @@
                         Recursos Áudio Visual:
                         <div class="container mb-2">
                             @foreach ($recAV as $recAV_)   
-                            <div class="form-check mt-2">
-                                <input class="form-check-input input-color" type="checkbox" name="recAVID[]" id="recAVID{{$recAV_->id}}" value="{{$recAV_->id}}">
-                                <label class="form-check-label" for="recAVID{{$recAV_->id}}">
-                                    {{$recAV_->nome}}
-                                </label>
-                            </div>
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input input-color" type="checkbox" name="recAVID[]" id="recAVID{{$recAV_->id}}" value="{{$recAV_->id}}">
+                                    <label class="form-check-label" for="recAVID{{$recAV_->id}}">
+                                        {{$recAV_->nome}}
+                                    </label>
+                                </div>
                             @endforeach
                         </div>
                     </div>
@@ -89,12 +88,12 @@
                         Serviços extras: 
                         <div class="container mb-2">
                             @foreach ($servEx as $servEx_)   
-                            <div class="form-check mt-2">
-                                <input class="form-check-input input-color" type="checkbox" name="servExID[]" id="servExID{{$servEx_->id}}" value="{{$servEx_->id}}">
-                                <label class="form-check-label" for="servExID{{$servEx_->id}}">
-                                    {{$servEx_->nome}}
-                                </label>
-                            </div>
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input input-color" type="checkbox" name="servExID[]" id="servExID{{$servEx_->id}}" value="{{$servEx_->id}}">
+                                    <label class="form-check-label" for="servExID{{$servEx_->id}}">
+                                        {{$servEx_->nome}}
+                                    </label>
+                                </div>
                             @endforeach
                         </div>
                     </div>
@@ -103,12 +102,12 @@
                         Staff:
                         <div class="container mb-2">
                             @foreach ($staff as $staff_)   
-                            <div class="form-check mt-2">
-                                <input class="form-check-input input-color" type="checkbox" name="staffID[]" id="staffID{{$staff_->id}}" value="{{$staff_->id}}">
-                                <label class="form-check-label" for="staffID{{$staff_->id}}">
-                                    {{$staff_->nome}}
-                                </label>
-                            </div>
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input input-color" type="checkbox" name="staffID[]" id="staffID{{$staff_->id}}" value="{{$staff_->id}}">
+                                    <label class="form-check-label" for="staffID{{$staff_->id}}">
+                                        {{$staff_->nome}}
+                                    </label>
+                                </div>
                             @endforeach
                         </div>
                     </div>

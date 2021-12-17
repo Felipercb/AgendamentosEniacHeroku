@@ -15,6 +15,8 @@
     <h3 class="mt-3 display-6">Lista de Suportes</h3>
 </div>
 
+{{-- Botão para dar administrador --}}
+
 {{-- <form action="/admin" method="post">
     @csrf
     <button class="btn btn-danger btn-sm btn-vermelho">
@@ -25,7 +27,6 @@
 @foreach ($usuariosSuportes as $usuarioSuporte)
 
     @if (!$usuarioSuporte->admin == 1)    
-
         <div class="container">
             <ul class="list-group">
                 <li style="background-color: #d9eaff" class="list-group-item d-flex justify-content-between align-items-center">
@@ -46,7 +47,6 @@
     <h3 class="mt-3 display-6">Lista de Usuários Comuns</h3>
 </div>
 @foreach ($usuariosComuns as $usuarioComum)
-
     <div class="container">
         <ul class="list-group">
             <li style="background-color: #d9eaff" class="list-group-item d-flex justify-content-between align-items-center">
@@ -67,9 +67,8 @@
 </div>
 
 @foreach ($agendamentos as $agendamento)
-    
-    @if($agendamento->tempo_inicial >= $hoje)
 
+    @if($agendamento->tempo_inicial >= $hoje)
         <ul class="list-group list-group-flush ul-itens-agendamentos" id="list-group-{{$agendamento->id}}">
             <li class="list-group-item itens-agendamentos" id="list-group-item-{{$agendamento->id}}">
                 <button class="btn btn-primary btn-abrir-fechar" onclick="criarEquipe(1, {{$agendamento->id}})" id="btn_criar_equipe{{$agendamento->id}}">
@@ -89,7 +88,7 @@
     
                                 Suporte Responsável: {{$usuarioSuporte->name}}
     
-                            @elseif(empty($agendamento->suporte_id))
+                                @elseif(empty($agendamento->suporte_id))
     
                                 Não há suporte responsável @break
     
@@ -124,13 +123,13 @@
                     <span class="titulo-agendamento">Informações extras:</span>
                     <ul id="lista"  class="list-group list-group-flush">
                         @foreach ($agendamento->RecursosAudioVisuais as $audioVisual)
-                        <li class="list-group-item conteudo-agendamento">{{$audioVisual->nome }} </li>
+                            <li class="list-group-item conteudo-agendamento">{{$audioVisual->nome }} </li>
                         @endforeach
                         @foreach ($agendamento->ServicosExtras as $ServicosExtras)
-                        <li class="list-group-item conteudo-agendamento">{{$ServicosExtras->nome }} </li>
+                            <li class="list-group-item conteudo-agendamento">{{$ServicosExtras->nome }} </li>
                         @endforeach
                         @foreach ($agendamento->Staff as $Staff)
-                        <li class="list-group-item conteudo-agendamento">{{$Staff->nome }} </li>
+                            <li class="list-group-item conteudo-agendamento">{{$Staff->nome }} </li>
                         @endforeach
 
                     </ul>

@@ -62,32 +62,32 @@
         <ul class="list-group ">
             @foreach ($recAV as $recAV_)  
 
-            <li class="list-group-item d-flex justify-content-between align-items-center config-color">  
+                <li class="list-group-item d-flex justify-content-between align-items-center config-color">  
 
-                <span id="recAv_{{$recAV_->id}}">{{$recAV_->nome}}</span>
+                    <span id="recAv_{{$recAV_->id}}">{{$recAV_->nome}}</span>
 
-                <div class="input-group w-55" hidden id="input_recAv_{{$recAV_->id}}">   
-                    <input type="text" class="form-control input-color-text" value="{{$recAV_->nome}}" id="input_recAv_valor_{{$recAV_->id}}">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" onclick="confirmarEdicao({{ $recAV_->id }} , 'recAv')" >
-                                <i class="fas fa-check"></i>
-                            </button>
-                            @csrf
-                        </div>
-                </div>
+                    <div class="input-group w-55" hidden id="input_recAv_{{$recAV_->id}}">   
+                        <input type="text" class="form-control input-color-text" value="{{$recAV_->nome}}" id="input_recAv_valor_{{$recAV_->id}}">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" onclick="confirmarEdicao({{ $recAV_->id }} , 'recAv')" >
+                                    <i class="fas fa-check"></i>
+                                </button>
+                                @csrf
+                            </div>
+                    </div>
 
-            <span class="d-flex">
-                <button class="btn btn-info btn-sm me-2" onclick="editar({{$recAV_->id}} , 'recAv')" , id="btn_editar_recAv_{{$recAV_->id}}">
-                    <i class="fas fa-edit"></i>
-                </button> 
+                <span class="d-flex">
+                    <button class="btn btn-info btn-sm me-2" onclick="editar({{$recAV_->id}} , 'recAv')" , id="btn_editar_recAv_{{$recAV_->id}}">
+                        <i class="fas fa-edit"></i>
+                    </button> 
 
-                <button class="btn btn-danger btn-sm" onclick="remover({{$recAV_->id}} , 'recAv')" id="btn_remover_recAv_{{$recAV_->id}}">
-                    <i class="fas fa-trash-alt"></i>
-                </button>   
-            </span> 
+                    <button class="btn btn-danger btn-sm" onclick="remover({{$recAV_->id}} , 'recAv')" id="btn_remover_recAv_{{$recAV_->id}}">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>   
+                </span> 
 
 
-            </li>
+                </li>
             @endforeach
 
             <li class="input-group list-group-item d-flex justify-content-between align-items-center config-color">
@@ -104,34 +104,31 @@
         <h5>Serviços extras: </h5>
         <ul class="list-group">
             @foreach ($servEx as $servEx_)  
-            <li class="list-group-item d-flex justify-content-between align-items-center config-color"> 
+                <li class="list-group-item d-flex justify-content-between align-items-center config-color"> 
+
+                    <span id="servEx_{{$servEx_->id}}">{{$servEx_->nome}}</span>
+                    <div class="input-group w-55" hidden id="input_servEx_{{ $servEx_->id }}">   
+                        <input type="text" class="form-control input-color-text" value="{{$servEx_->nome}}" id="input_servEx_valor_{{$servEx_->id}}">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" onclick="confirmarEdicao({{ $servEx_->id }} , 'servEx')" >
+                                    <i class="fas fa-check"></i>
+                                </button>
+                                @csrf
+                            </div>
+                    </div>
+
+                    <span class="d-flex">
+                        <button class="btn btn-info btn-sm me-2" onclick="editar({{$servEx_->id}} , 'servEx')"  id="btn_editar_servEx_{{$servEx_->id}}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+
+                        <button class="btn btn-danger btn-sm" onclick="remover({{$servEx_->id}} , 'servEx')" id="btn_remover_servEx_{{$servEx_->id}}">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>   
+                    </span> 
 
 
-                <span id="servEx_{{$servEx_->id}}">{{$servEx_->nome}}</span>
-
-                <div class="input-group w-55" hidden id="input_servEx_{{ $servEx_->id }}">   
-                    <input type="text" class="form-control input-color-text" value="{{$servEx_->nome}}" id="input_servEx_valor_{{$servEx_->id}}">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" onclick="confirmarEdicao({{ $servEx_->id }} , 'servEx')" >
-                                <i class="fas fa-check"></i>
-                            </button>
-                            @csrf
-                        </div>
-                </div>
-
-
-                <span class="d-flex">
-                    <button class="btn btn-info btn-sm me-2" onclick="editar({{$servEx_->id}} , 'servEx')"  id="btn_editar_servEx_{{$servEx_->id}}">
-                        <i class="fas fa-edit"></i>
-                    </button>
-
-                    <button class="btn btn-danger btn-sm" onclick="remover({{$servEx_->id}} , 'servEx')" id="btn_remover_servEx_{{$servEx_->id}}">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>   
-                </span> 
-
-
-            </li>
+                </li>
             @endforeach
             <li class="input-group list-group-item d-flex justify-content-between align-items-center config-color">
                 <input type="text" class="form-control input-color-text""  id="input_servEx_valor">
@@ -146,33 +143,32 @@
         <h5>Staff:</h5>
         <ul class="list-group">
             @foreach ($staff as $staff_)  
-            <li class="list-group-item d-flex justify-content-between align-items-center config-color"> 
+                <li class="list-group-item d-flex justify-content-between align-items-center config-color"> 
 
-                <span id="staff_{{$staff_->id}}">{{$staff_->nome}}</span>
+                    <span id="staff_{{$staff_->id}}">{{$staff_->nome}}</span>
 
-                <div class="input-group w-55" hidden id="input_staff_{{ $staff_->id }}">   
-                    <input type="text" class="form-control input-color-text" value="{{$staff_->nome}}" id="input_staff_valor_{{$staff_->id}}">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" onclick="confirmarEdicao({{ $staff_->id }} , 'staff')" >
-                                <i class="fas fa-check"></i>
-                            </button>
-                            @csrf
-                        </div>
-                </div>
+                    <div class="input-group w-55" hidden id="input_staff_{{ $staff_->id }}">   
+                        <input type="text" class="form-control input-color-text" value="{{$staff_->nome}}" id="input_staff_valor_{{$staff_->id}}">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" onclick="confirmarEdicao({{ $staff_->id }} , 'staff')" >
+                                    <i class="fas fa-check"></i>
+                                </button>
+                                @csrf
+                            </div>
+                    </div>
+
+                    <span class="d-flex">
+                        <button class="btn btn-info btn-sm me-2" onclick="editar({{$staff_->id}} , 'staff')" id="btn_editar_staff_{{$staff_->id}}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+
+                        <button class="btn btn-danger btn-sm" onclick="remover({{$staff_->id}} , 'staff')" id="btn_remover_staff_{{$staff_->id}}">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>   
+                    </span> 
 
 
-                <span class="d-flex">
-                    <button class="btn btn-info btn-sm me-2" onclick="editar({{$staff_->id}} , 'staff')" id="btn_editar_staff_{{$staff_->id}}">
-                        <i class="fas fa-edit"></i>
-                    </button>
-
-                    <button class="btn btn-danger btn-sm" onclick="remover({{$staff_->id}} , 'staff')" id="btn_remover_staff_{{$staff_->id}}">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>   
-                </span> 
-
-
-            </li>
+                </li>
             @endforeach
 
             <li class="input-group list-group-item d-flex justify-content-between align-items-center config-color">
@@ -226,16 +222,16 @@
                 Período de horários:<br>
                 <div class="dropdown">
                     <button class="btn btn-info dropdown-toggle" type="button" id="dropdownPeriodo" data-bs-toggle="dropdown" aria-expanded="false">
-                    @if ($config_horarios[0]->periodo == '00:15:00')
-                            15 minutos
-                            <script>periodo_ = 0;</script>
-                        @elseif ($config_horarios[0]->periodo == '00:30:00')
-                            30 minutos
-                            <script>periodo_ = 1;</script>
-                        @elseif ($config_horarios[0]->periodo == '01:00:00')
-                            1 hora
-                            <script>periodo_ = 2;</script>
-                    @endif
+                        @if ($config_horarios[0]->periodo == '00:15:00')
+                                15 minutos
+                                <script>periodo_ = 0;</script>
+                            @elseif ($config_horarios[0]->periodo == '00:30:00')
+                                30 minutos
+                                <script>periodo_ = 1;</script>
+                            @elseif ($config_horarios[0]->periodo == '01:00:00')
+                                1 hora
+                                <script>periodo_ = 2;</script>
+                        @endif
                     </button>
                     <ul class="dropdown-menu input-color" aria-labelledby="dropdownPeriodo">
                     <li><a class="dropdown-item" onclick="periodo(0, '15 minutos')">15 minutos</a></li>

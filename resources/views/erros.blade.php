@@ -9,11 +9,8 @@
     <script>
 
         setTimeout(function(){
-
             erro = document.getElementById('mensagem-erro')
-
             erro.hidden = true;
-
         }, 4000);
 
     </script>

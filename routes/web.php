@@ -12,20 +12,9 @@ suporteController,
 testesController,
 tasksController};
 
-
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use Illuminate\Support\Facades\
+{Auth,
+Route};
 
 Auth::routes();
 
@@ -59,9 +48,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/agendar/editar/{id}', [agendamentoController::class , 'edit'])->name('editar_agendamento_post')->middleware('userAgendamento');
     Route::post('/agendar/editar/{id}', [agendamentoController::class , 'salvarMudancas'])->name('salvar_mudancas')->middleware('userAgendamento');
 
+    /* Rota post para criar Administrador */
+    
     // Route::post('/admin', [controleController::class , 'darAdmin']);
  
-
 });
 Route::get('/testes/{diasemana}', [testesController::class , 'testes'])->name('testes');
 Route::get('/home', [tasksController::class , 'index'] )->name('home');
