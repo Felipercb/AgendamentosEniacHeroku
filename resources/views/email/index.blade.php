@@ -8,6 +8,8 @@
     <li>Data: {{$data}}</li>
 </ul>
 <br>
+<img src="{{ $message->embed(public_path() . '/qrcodeagendamento.png') }}"/>
+<br>
 <p>
     Confira essas e mais outras informações sobre o agendamento no 
     calendário do site (no caso de um agendamento público) ou na aba "Meus agendamentos"

@@ -13,17 +13,19 @@ class EmailAgendamento extends Mailable
 
     public $info;
     public $data;
+    public $qrcode;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($info, $data)
+    public function __construct($info, $data, $qrcode)
     {
         
         $this->info = $info;
         $this->data = $data;
+        $this->qrcode = $qrcode;
 
     }
 

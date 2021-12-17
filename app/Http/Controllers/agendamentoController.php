@@ -13,9 +13,12 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class agendamentoController extends Controller
 {
@@ -41,26 +44,45 @@ class agendamentoController extends Controller
     {
         
         $data = $req->data;
-
         $dataAjuste = explode("-", $data);
-        
         $dataBR = $dataAjuste[2] ."/". $dataAjuste[1] ."/". $dataAjuste[0];
         
-        $id_agendamento = $agendar->criarAgendamento($req);
-
-        $url = route('suporte_consulta', ['id' => $id_agendamento]);
-        
         $email1 = $req->email;
-
         $email2 = Auth::user()->email;
 
+        // Criação de agendamento
+        $id_agendamento = $agendar->criarAgendamento($req);
+        
+        // Requisição POST para API do Qrcode
+
+        $qrcode = Http::post('https://geradorqrcode.herokuapp.com/post', [
+            'nome' => $req->nome,
+            'evento' => $req->nome_evento,
+            'descricao' => $req->obs,
+        ]);
+
+        //$qrcode = response($qrcode)->header('Content-Type', 'image/png');
+        // Salvando imagem no Public
+        define('UPLOAD_DIR', 'qrcode');
+        $img = $qrcode;
+        $img = str_replace('data:image/png;base64,', '', $img);
+        $img = str_replace(' ', '+', $img);
+        $data = base64_decode($img);
+        $file = UPLOAD_DIR . 'agendamento' . '.png';
+        file_put_contents($file, $data);
+
+        
+        $qrcode = $file;
+        // Envio de Email
         if($email1 == $email2) {
-            Mail::to($email1)->send(new EmailAgendamento($req, $dataBR));
+            Mail::to($email1)->send(new EmailAgendamento($req, $dataBR, $qrcode));
         } else {
-            Mail::to($email1)->send(new EmailAgendamento($req, $dataBR));
-            Mail::to($email2)->send(new EmailAgendamento2(Auth::user(), $req, $dataBR));
+            Mail::to($email1)->send(new EmailAgendamento($req, $dataBR, $qrcode));
+            Mail::to($email2)->send(new EmailAgendamento2(Auth::user(), $req, $dataBR, $qrcode));
         }
 
+        //Envio de Mensagem no Telegram
+        $url = route('suporte_consulta', ['id' => $id_agendamento]);
         Mensagem::sendMessage("<b>Evento: </b>" . $req->nome_evento . "\n" . "<b>Agendado para: </b>". $dataBR . "\n" . "<b>Responsável: </b>" . $req->nome . "\n\n" . "Para se responsabilizar pelo evento, clique no link abaixo: " . "\n" . "<a href ='" . $url . "'>Se responsabilizar!</a>");
 
         return redirect()->route('home');
