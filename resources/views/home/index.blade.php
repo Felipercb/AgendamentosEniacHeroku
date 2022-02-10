@@ -12,7 +12,7 @@
 
 @section('conteudo')
 <div class="d-flex justify-content-center p-5">
-    <h3 class="mt-3 display-6">Calendário de agendamentos auditório ENIAC</h3>
+    <h3 class="mt-3 display-6">Calendários de agendamentos auditório ENIAC</h3>
 </div>
 
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
